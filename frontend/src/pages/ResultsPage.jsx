@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import AnalysisSummary from '../components/AnalysisSummary'
 import CodeReference from '../components/CodeReference'
 import ExecutiveSummary from '../components/ExecutiveSummary'
@@ -7,8 +6,6 @@ import SecurityFindings from '../components/SecurityFindings'
 import TopFilesTable from '../components/TopFilesTable'
 
 function ResultsPage({ result, onReset }) {
-  const [showWarning, setShowWarning] = useState(true)
-
   const securityCount = result.security_findings?.flatMap((item) => item.findings ?? []).length ?? 0
   const qualityCount = result.quality_findings?.flatMap((item) => item.findings ?? []).length ?? 0
   const performanceCount = result.performance_findings?.flatMap((item) => item.findings ?? []).length ?? 0
@@ -19,9 +16,9 @@ function ResultsPage({ result, onReset }) {
       <div className="mx-auto flex max-w-6xl flex-col gap-8">
         <div className="flex flex-col gap-4 rounded-[28px] border border-slate-800 bg-slate-900/70 p-6 shadow-2xl shadow-slate-950/50 backdrop-blur sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">Analysis complete</p>
-            <h2 className="mt-2 text-3xl font-semibold text-white">{result.repository || 'Repository analysis'}</h2>
-            <p className="mt-3 text-slate-400">Review the repository snapshot, top-risk files, and security findings below.</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">Engineering intelligence ready</p>
+            <h2 className="mt-2 text-3xl font-semibold text-white">{result.repository || 'Engineering Intelligence'}</h2>
+            <p className="mt-3 text-slate-400">Review the repository snapshot, engineering health signals, and intelligence findings below.</p>
           </div>
           <button
             type="button"
@@ -32,33 +29,14 @@ function ResultsPage({ result, onReset }) {
           </button>
         </div>
 
-        {showWarning ? (
-          <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 text-amber-100 shadow-lg shadow-amber-500/20">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Warning</p>
-                <p className="mt-2 text-sm text-amber-100">
-                  Last push by <span className="font-semibold text-white">Sriram</span> included an error code.
-                  Please review and close this issue.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowWarning(false)}
-                className="rounded-full border border-amber-500/50 bg-slate-950/80 px-3 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-amber-200 transition hover:bg-amber-500/20"
-              >
-                Dismiss
-              </button>
-            </div>
-          </div>
-        ) : null}
-
         <AnalysisSummary result={result} />
 
         {noFindings ? (
           <div className="rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-4 text-emerald-100 shadow-lg shadow-emerald-500/20">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200">Success</p>
-            <p className="mt-2 text-sm text-emerald-100">No issues were detected by the AI review across security, quality, and performance.</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-200">No findings returned</p>
+            <p className="mt-2 text-sm text-emerald-100">
+              The backend returned no security intelligence, maintainability insights, or performance intelligence findings for this repository.
+            </p>
           </div>
         ) : null}
 
@@ -71,20 +49,19 @@ function ResultsPage({ result, onReset }) {
 
         <div className="grid gap-6 xl:grid-cols-2">
           <FindingsSection
-            title="Quality Findings"
+            title="Maintainability Insights"
             findings={result.quality_findings?.flatMap((item) => item.findings ?? []) ?? []}
-            emptyMessage="No quality findings."
+            emptyMessage="No maintainability insights were returned by the backend."
           />
           <FindingsSection
-            title="Performance Findings"
+            title="Performance Intelligence"
             findings={result.performance_findings?.flatMap((item) => item.findings ?? []) ?? []}
-            emptyMessage="No performance findings."
+            emptyMessage="No performance intelligence was returned by the backend."
           />
         </div>
 
         <ExecutiveSummary report={result.advisor_report} />
-
-        <CodeReference />
+        <CodeReference referenceAnalysis={result.reference_analysis ?? result.referenceAnalysis} />
       </div>
     </main>
   )

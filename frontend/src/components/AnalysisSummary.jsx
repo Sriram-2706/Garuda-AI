@@ -6,10 +6,10 @@ function AnalysisSummary({ result }) {
   const statCards = [
     { label: 'Files analyzed', value: result.top_files?.length ?? 0 },
     { label: 'Files skipped', value: result.skipped_files ?? 0 },
-    { label: 'Security findings', value: securityCount },
-    { label: 'Quality findings', value: qualityCount },
-    { label: 'Performance findings', value: performanceCount },
-    { label: 'Repository risk', value: result.advisor_report?.overall_risk ?? 'Unknown' },
+    { label: 'Security intelligence', value: securityCount },
+    { label: 'Maintainability insights', value: qualityCount },
+    { label: 'Performance intelligence', value: performanceCount },
+    { label: 'Engineering health', value: result.advisor_report?.overall_risk ?? 'Unknown' },
     { label: 'AI confidence', value: result.advisor_report?.confidence ?? 'Unknown' },
   ]
 
@@ -24,10 +24,10 @@ function AnalysisSummary({ result }) {
       <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 shadow-lg shadow-slate-950/40">
         <p className="text-sm text-slate-400">Active Agents</p>
         <div className="mt-3 space-y-2 text-sm text-slate-200">
-          <p className="flex items-center gap-2 text-sky-300"><span>✓</span> Sentinel Agent</p>
-          <p className="flex items-center gap-2 text-sky-300"><span>✓</span> Craft Agent</p>
-          <p className="flex items-center gap-2 text-sky-300"><span>✓</span> Velocity Agent</p>
-          <p className="flex items-center gap-2 text-sky-300"><span>✓</span> Advisor Agent</p>
+          <p className="flex items-center gap-2 text-sky-300"><span>&#10003;</span> Sentinel Agent</p>
+          <p className="flex items-center gap-2 text-sky-300"><span>&#10003;</span> Architect Agent</p>
+          <p className="flex items-center gap-2 text-sky-300"><span>&#10003;</span> Velocity Agent</p>
+          <p className="flex items-center gap-2 text-sky-300"><span>&#10003;</span> Oracle Agent</p>
         </div>
       </div>
     </div>

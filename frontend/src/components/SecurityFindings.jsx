@@ -4,7 +4,7 @@ function SecurityFindings({ findings }) {
   return (
     <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/40">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-slate-100">Security findings</h3>
+        <h3 className="text-lg font-semibold text-slate-100">Security Intelligence</h3>
         <span className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-400">
           {safeFindings.length} found
         </span>
@@ -37,7 +37,7 @@ function SecurityFindings({ findings }) {
         </div>
       ) : (
         <p className="rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-4 text-sm text-emerald-100">
-          No security findings detected.
+          No security intelligence was returned by the backend.
         </p>
       )}
     </div>
