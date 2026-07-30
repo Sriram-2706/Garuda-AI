@@ -1,103 +1,40 @@
-# CodeGuardian AI
+# Garuda AI
 
-> Agentic Engineering Quality Analyzer
+> Autonomous Engineering Intelligence Platform
 
-CodeGuardian AI is an AI-powered engineering assistant designed to analyze software repositories and provide intelligent insights into security, maintainability, and performance. The platform leverages multiple specialized AI agents to review source code, prioritize engineering risks, and generate executive-level recommendations.
+Garuda AI is an independent continuation inspired by concepts explored during the HCLTech x OpenAI Agentic AI Hackathon. The platform analyzes software repositories and assembles engineering intelligence across security, maintainability, performance, and executive reporting while preserving the current application runtime behavior.
 
-Developed as part of the **HCLTech × OpenAI Agentic AI Hackathon 2026**.
+## Overview
 
----
+Garuda AI helps engineering teams review public repositories through the existing repository ingestion, prioritization, and multi-agent analysis pipeline. The product experience is centered on four user-facing intelligence views:
 
-## Features
+- Engineering Health
+- Security Intelligence
+- Maintainability Insights
+- Performance Intelligence
 
-- Repository Analysis
-- Intelligent File Prioritization
-- Multi-Agent Code Review
-- Security Analysis
-- Code Quality Assessment
-- Performance Analysis
-- Executive Risk Summary
-- Interactive Engineering Dashboard
+An Executive Intelligence Report summarizes overall risk, confidence, total findings, and recommended next actions from the same backend outputs already produced by the application.
 
----
+## User-Facing Agents
 
-## Architecture
+- Sentinel: security intelligence
+- Architect: maintainability insights
+- Velocity: performance intelligence
+- Oracle: executive intelligence report
 
-```
-GitHub Repository
-        │
-        ▼
-Repository Discovery
-        │
-        ▼
-Risk-Based File Prioritization
-        │
-        ▼
- ┌──────────────┬──────────────┬──────────────┐
- │              │              │
- ▼              ▼              ▼
-Sentinel     Craft         Velocity
-(Security)  (Quality)   (Performance)
- │              │              │
- └──────────────┴──────────────┘
-               │
-               ▼
-          Advisor Agent
-               │
-               ▼
-      Executive Dashboard
-```
+## How It Works
 
----
+1. A public GitHub repository URL is submitted through the frontend.
+2. Existing backend services collect repository metadata and prioritize files for review.
+3. Specialized agents analyze the selected files for security, maintainability, and performance signals.
+4. The application presents the resulting findings alongside executive intelligence.
 
 ## Technology Stack
 
-### Frontend
+- Frontend: React, Tailwind CSS, Vite
+- Backend: FastAPI, Python
+- AI Integration: OpenAI API with multi-agent orchestration
 
-- React
-- Tailwind CSS
-- JavaScript
+## Project Positioning
 
-### Backend
-
-- FastAPI
-- Python
-
-### AI
-
-- OpenAI API
-- Multi-Agent Architecture
-
----
-
-## AI Agents
-
-### Sentinel Agent
-
-Identifies security vulnerabilities and potential risks within the repository.
-
-### Craft Agent
-
-Evaluates maintainability, coding practices, architecture, and code quality.
-
-### Velocity Agent
-
-Analyzes performance bottlenecks and optimization opportunities.
-
-### Advisor Agent
-
-Aggregates findings from all agents and generates an executive engineering summary.
-
----
-
-## Project Status
-
-This repository represents the **official hackathon submission** for the HCLTech × OpenAI Agentic AI Hackathon 2026.
-
-The project was developed within the hackathon timeline as a proof-of-concept demonstrating the application of agentic AI to software engineering workflows.
-
----
-
-## License
-
-This repository is maintained as the official hackathon submission.
+Garuda AI is maintained as an independent continuation of the original hackathon work. This repository preserves established backend workflows, prompts, schemas, and core runtime behavior while evolving the brand and user-facing presentation.

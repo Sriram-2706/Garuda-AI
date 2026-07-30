@@ -3,10 +3,10 @@ function ExecutiveSummary({ report }) {
     return (
       <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/40">
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-slate-100">Executive Summary</h3>
+          <h3 className="text-lg font-semibold text-slate-100">Executive Intelligence Report</h3>
         </div>
         <p className="rounded-2xl border border-dashed border-slate-700 p-4 text-sm text-slate-400">
-          No executive summary is available.
+          No executive intelligence report was returned by the backend.
         </p>
       </div>
     )
@@ -22,8 +22,8 @@ function ExecutiveSummary({ report }) {
     <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/40">
       <div className="mb-5 flex items-center justify-between gap-4">
         <div>
-          <h3 className="text-lg font-semibold text-slate-100">Executive Summary</h3>
-          <p className="mt-1 text-sm text-slate-400">Key guidance for security, quality, and performance.</p>
+          <h3 className="text-lg font-semibold text-slate-100">Executive Intelligence Report</h3>
+          <p className="mt-1 text-sm text-slate-400">Executive intelligence spanning security, maintainability, and performance.</p>
         </div>
         <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${riskColor}`}>
           {report.overall_risk || 'Unknown Risk'}
@@ -33,7 +33,7 @@ function ExecutiveSummary({ report }) {
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
           <p className="text-sm text-slate-400">Total Findings</p>
-          <p className="mt-2 text-2xl font-semibold text-slate-100">{report.total_findings ?? '—'}</p>
+          <p className="mt-2 text-2xl font-semibold text-slate-100">{report.total_findings ?? '--'}</p>
         </div>
         <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
           <p className="text-sm text-slate-400">Recommended Actions</p>
@@ -43,7 +43,7 @@ function ExecutiveSummary({ report }) {
 
       <div className="mt-5 space-y-4 text-sm text-slate-400">
         <div>
-          <p className="font-medium text-slate-300">Summary</p>
+          <p className="font-medium text-slate-300">Executive Intelligence</p>
           <p className="mt-2 leading-6 text-slate-200">{report.executive_summary || 'No executive summary provided.'}</p>
         </div>
       </div>

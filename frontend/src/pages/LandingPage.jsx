@@ -9,13 +9,13 @@ function LandingPage({ onAnalyze, loading, error }) {
         <section className="rounded-[32px] border border-slate-800 bg-slate-900/60 p-8 shadow-2xl shadow-slate-950/50 backdrop-blur sm:p-10">
           <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
             <Sparkles className="h-4 w-4" />
-            Agentic Engineering Quality Analyzer
+            Autonomous Engineering Intelligence Platform
           </div>
           <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-            CodeGuardian AI
+            Garuda AI
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-slate-400">
-            Analyze public GitHub repositories for quality signals, risky files, and security findings in seconds.
+            Generate engineering intelligence for public GitHub repositories with focused security, maintainability, and performance review.
           </p>
 
           <div className="mt-8">
