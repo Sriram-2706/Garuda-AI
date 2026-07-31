@@ -16,12 +16,27 @@ function hasReferenceContent(value) {
   return false
 }
 
+function normalizeFindingGroups(groups, fallbackFileLabel = 'Unspecified file') {
+  if (!Array.isArray(groups)) return []
+
+  return groups.flatMap((group) => {
+    const groupFile = group?.file || fallbackFileLabel
+    const findings = Array.isArray(group?.findings) ? group.findings : []
+
+    return findings.map((finding, index) => ({
+      ...finding,
+      sourceFile: finding?.file || groupFile || fallbackFileLabel,
+      sourceIndex: index,
+    }))
+  })
+}
+
 function ResultsPage({ result, onReset }) {
   const [activeView, setActiveView] = useState('overview')
 
-  const securityFindings = result.security_findings?.flatMap((item) => item.findings ?? []) ?? []
-  const maintainabilityFindings = result.quality_findings?.flatMap((item) => item.findings ?? []) ?? []
-  const performanceFindings = result.performance_findings?.flatMap((item) => item.findings ?? []) ?? []
+  const securityFindings = normalizeFindingGroups(result.security_findings)
+  const maintainabilityFindings = normalizeFindingGroups(result.quality_findings)
+  const performanceFindings = normalizeFindingGroups(result.performance_findings)
   const referenceAnalysis = result.reference_analysis ?? result.referenceAnalysis
 
   const securityCount = securityFindings.length
@@ -153,6 +168,7 @@ function ResultsPage({ result, onReset }) {
             title="Maintainability Insights"
             findings={maintainabilityFindings}
             emptyMessage="No maintainability insights are available for this repository."
+            emptyFilteredMessage="No maintainability findings match the current search and filter settings."
           />
         )
       case 'performance':
@@ -161,6 +177,7 @@ function ResultsPage({ result, onReset }) {
             title="Performance Intelligence"
             findings={performanceFindings}
             emptyMessage="No performance intelligence is available for this repository."
+            emptyFilteredMessage="No performance findings match the current search and filter settings."
           />
         )
       case 'executive':
