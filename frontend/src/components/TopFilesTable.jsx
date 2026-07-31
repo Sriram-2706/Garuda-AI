@@ -27,7 +27,7 @@ function TopFilesTable({ files }) {
             ) : (
               <tr>
                 <td className="px-5 py-6 text-slate-400" colSpan="3">
-                  No engineering health file data was returned by the backend.
+                  No engineering health file data is available for this repository.
                 </td>
               </tr>
             )}

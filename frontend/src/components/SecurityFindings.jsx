@@ -37,7 +37,7 @@ function SecurityFindings({ findings }) {
         </div>
       ) : (
         <p className="rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-4 text-sm text-emerald-100">
-          No security intelligence was returned by the backend.
+          No security intelligence is available for this repository.
         </p>
       )}
     </div>
