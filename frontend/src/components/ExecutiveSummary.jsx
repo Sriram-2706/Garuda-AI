@@ -6,7 +6,7 @@ function ExecutiveSummary({ report }) {
           <h3 className="text-lg font-semibold text-slate-100">Executive Intelligence Report</h3>
         </div>
         <p className="rounded-2xl border border-dashed border-slate-700 p-4 text-sm text-slate-400">
-          No executive intelligence report was returned by the backend.
+          No executive intelligence report is available for this repository.
         </p>
       </div>
     )
@@ -37,14 +37,14 @@ function ExecutiveSummary({ report }) {
         </div>
         <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
           <p className="text-sm text-slate-400">Recommended Actions</p>
-          <p className="mt-2 text-sm leading-6 text-slate-200">{report.recommendation || 'No recommendation provided.'}</p>
+          <p className="mt-2 text-sm leading-6 text-slate-200">{report.recommendation || 'No recommended actions are available.'}</p>
         </div>
       </div>
 
       <div className="mt-5 space-y-4 text-sm text-slate-400">
         <div>
           <p className="font-medium text-slate-300">Executive Intelligence</p>
-          <p className="mt-2 leading-6 text-slate-200">{report.executive_summary || 'No executive summary provided.'}</p>
+          <p className="mt-2 leading-6 text-slate-200">{report.executive_summary || 'No executive intelligence summary is available.'}</p>
         </div>
       </div>
     </div>
