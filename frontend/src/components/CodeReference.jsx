@@ -110,7 +110,7 @@ function CodeReference({ referenceAnalysis }) {
     <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/40">
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-slate-100">Reference Analysis</h3>
-        <p className="mt-1 text-sm text-slate-400">Repository-specific reference analysis returned by the backend.</p>
+        <p className="mt-1 text-sm text-slate-400">Repository-specific reference material associated with this analysis.</p>
       </div>
 
       {renderReferenceContent(referenceAnalysis)}
