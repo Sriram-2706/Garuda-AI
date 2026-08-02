@@ -9,7 +9,8 @@ function AnalysisSummary({ result }) {
     { label: 'Security intelligence', value: securityCount },
     { label: 'Maintainability insights', value: qualityCount },
     { label: 'Performance intelligence', value: performanceCount },
-    { label: 'Engineering health', value: result.advisor_report?.overall_risk ?? 'Unknown' },
+    { label: 'Health grade', value: result.engineering_health?.grade ?? 'N/A' },
+    { label: 'Overall risk', value: result.advisor_report?.overall_risk ?? 'Unknown' },
     { label: 'AI confidence', value: result.advisor_report?.confidence ?? 'Unknown' },
   ]
 
