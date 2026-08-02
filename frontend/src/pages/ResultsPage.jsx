@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BookOpenText, Gauge, LayoutDashboard, Shield, Sparkles, Wrench } from 'lucide-react'
 import AnalysisSummary from '../components/AnalysisSummary'
 import CodeReference from '../components/CodeReference'
+import EngineeringHealthScore from '../components/EngineeringHealthScore'
 import ExecutiveSummary from '../components/ExecutiveSummary'
 import FindingsSection from '../components/FindingsSection'
 import SecurityFindings from '../components/SecurityFindings'
@@ -29,6 +30,7 @@ function ResultsPage({ result, onReset }) {
   const performanceCount = performanceFindings.length
   const noFindings = securityCount === 0 && qualityCount === 0 && performanceCount === 0
   const referenceAvailable = hasReferenceContent(referenceAnalysis)
+  const engineeringHealth = result.engineering_health
 
   const views = [
     {
@@ -36,7 +38,7 @@ function ResultsPage({ result, onReset }) {
       label: 'Overview',
       description: 'Summary cards, repository context, and navigation into each intelligence area.',
       icon: LayoutDashboard,
-      status: `${securityCount + qualityCount + performanceCount} findings`,
+      status: engineeringHealth?.score != null ? `${engineeringHealth.score}/100 score` : `${securityCount + qualityCount + performanceCount} findings`,
     },
     {
       id: 'security',
@@ -81,6 +83,7 @@ function ResultsPage({ result, onReset }) {
   function renderOverview() {
     return (
       <div className="space-y-6">
+        <EngineeringHealthScore health={engineeringHealth} />
         <AnalysisSummary result={result} />
 
         {noFindings ? (
