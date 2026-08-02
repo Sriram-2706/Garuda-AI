@@ -13,4 +13,5 @@ class RepositoryAnalysisResponse(BaseModel):
     quality_findings: list[dict[str, Any]]
     performance_findings: list[dict[str, Any]]
     advisor_report: dict[str, Any]
+    engineering_health: dict[str, Any]
     file_errors: list[dict[str, Any]] = []
