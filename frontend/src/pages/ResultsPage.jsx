@@ -184,7 +184,15 @@ function ResultsPage({ result, onReset }) {
           />
         )
       case 'executive':
-        return <ExecutiveSummary report={result.advisor_report} />
+        return (
+          <ExecutiveSummary
+            report={result.advisor_report}
+            health={engineeringHealth}
+            securityFindings={securityFindings}
+            maintainabilityFindings={maintainabilityFindings}
+            performanceFindings={performanceFindings}
+          />
+        )
       case 'reference':
         return <CodeReference referenceAnalysis={referenceAnalysis} />
       default:
